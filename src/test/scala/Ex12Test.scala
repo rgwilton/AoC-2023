@@ -6,6 +6,11 @@ import org.junit.Assert.*
 class Ex12Test extends ExTest(Ex12):
   val testcases = Seq(
     TestCase(
-      """""", 0, 0),
-    TestCase(exInput, 0, 0))
+       """|???.### 1,1,3
+          |.??..??...?##. 1,1,3
+          |?#?#?#?#?#?#?#? 1,3,1,6
+          |????.#...#... 4,1,1
+          |????.######..#####. 1,6,5
+          |?###???????? 3,2,1""", 21, 525152L),
+    TestCase(exInput, 7633, 0L))
 
