@@ -25,6 +25,7 @@ object Ex15 extends Exercise:
         boxes(h) =
           boxes(h).filterNot(l => l.label == label)
       else
+        // Labels are stored in reverse direction.
         val Array(label, value) = step.split("=")
         val lens = Lens(label, value.toInt)
         val h = hash(label)
@@ -33,8 +34,8 @@ object Ex15 extends Exercise:
           b.indexWhere(l => l.label == label)
           match
             case -1 => lens :: b
-            case x => 
-              b.take(x) ::: List(lens) ::: b.drop(x + 1)
+            case x => b.updated(x, lens)
+              //b.take(x) ::: List(lens) ::: b.drop(x + 1)
     
     // Calc
     (for (b, i) <- boxes.zip(Iterator.from(1))
